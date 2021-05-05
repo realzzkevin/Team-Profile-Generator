@@ -3,7 +3,6 @@ const inquirer = require('inquirer');
 const generateHTML = require('./src/generateHTML');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
-const Inter = require('./lib/Intern');
 const Intern = require('./lib/Intern');
 
 const questions = [
@@ -12,13 +11,6 @@ const questions = [
         name: 'name',
         message: 'What is the name of your team manager?',
         validate: (name)=> nameValidation(name),
-        /*validate: function (answer){
-            if(answer.trim().length){
-                return true;
-            } else {
-                return 'Please enter a valid name.';
-            }
-        },*/
     },
 
     {
@@ -26,14 +18,6 @@ const questions = [
         name: 'id',
         message: 'Enter employee ID:',
         validate: (id)=>intValidation(id),
-        /*
-        validate: function (value){
-            if(parseInt(value)){
-                return true;
-            } else {
-                return 'Please enter a number.';
-            }
-        },*/
     },
 
     {
@@ -52,13 +36,7 @@ const questions = [
         type: 'input',
         name: 'officeNum',
         message: 'Enter office number:',
-        validate: function (value){
-            if(parseInt(value)){
-                return true;
-            } else {
-                return 'Please enter a number.';
-            }
-        },
+        validate: (value) => intValidation(value),
     },
 
     {
