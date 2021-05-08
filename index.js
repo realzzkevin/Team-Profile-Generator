@@ -56,7 +56,7 @@ const questions = [
         name: 'github',
         message: "Enter github account",
         validate: function (value){
-            if(value.match(/^[a-z0-9_-]{0,}$/)){
+            if(value.match(/^[a-zA-Z0-9_-]{1,}$/)){
                 return true;
             }
             return 'Please enter a valid github accoutn';
@@ -97,7 +97,11 @@ function intValidation(int){
 }
 
 function writeToFile(fileName, data){
-
+    let html = generateHTML(data);
+    fs.writeFile(`./dist/${fileName}`, html, (err)=>{
+        if (err) throw err;
+    });
+    console.log(`${fileName} created!`);
 }
 
 function addManager(){
@@ -108,8 +112,6 @@ function addManager(){
             questions[2], 
             questions[3]])
         .then((answer) =>{
-            console.log(answer);
-            console.log(parseInt(answer.id));
             let manager = new Manager(answer.name, parseInt(answer.id), answer.email, parseInt(answer.officeNum));
             teamMembers.push(manager);
             options();
@@ -129,7 +131,6 @@ function addEngineer(){
             questions[6],
         ])
         .then((answer) =>{
-            console.log(answer);
             let engineer = new Engineer(answer.name, parseInt(answer.id), answer.email, answer.github);
             teamMembers.push(engineer);
             options();
@@ -148,7 +149,6 @@ function addIntern(){
             questions[8],
         ])
         .then((answer) =>{
-            console.log(answer);
             let intern = new Intern(answer.name, parseInt(answer.id), answer.email, answer.school);
             teamMembers.push(intern);
             options();
@@ -171,8 +171,7 @@ function options(){
                     addIntern();
                     break;
                 case 'Finished':
-                    console.log(teamMembers);
-                    writeToFile('team Portfolio', teamMembers);
+                    writeToFile('team_Portfolio.html', teamMembers);
                     return;
                 default:
                     options();
