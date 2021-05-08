@@ -3,7 +3,8 @@ function renderManagerCard(manager){
     manager.getRole();
     
     if(manager.getRole()==="Manager"){
-        let card =`<li class='card'>
+        let card =`
+                    <li class='card'>
                         <div class = 'card-header text-center'>
                             <h2>${manager.getName()}</h2>
                             <h3><span class ='fas fa-user-tie'></span>${manager.getRole()}</h3>
@@ -25,7 +26,8 @@ function renderManagerCard(manager){
 
 function renderEngineerCard(engineer){
     if(engineer.getRole()==='Engineer'){
-        let card = `<li class='card'>
+        let card = `
+                    <li class='card'>
                         <div class = 'card-header text-center'>
                             <h2>${engineer.getName()}</h2>
                             <h3><span class ='fas fa-user-cog'></span>${engineer.getRole()}</h3>
@@ -47,7 +49,8 @@ function renderEngineerCard(engineer){
 
 function renderInternCard(intern){
     if (intern.getRole()==='Intern'){
-        let card =`<li class='card'>
+        let card =`
+                    <li class='card'>
                         <div class = 'card-header text-center'>
                             <h2>${intern.getName()}</h2>
                             <h3><span class='fas fa-user-graduate'></span>${intern.getRole()}</h3>
@@ -87,7 +90,8 @@ function generateHTML(team){
             }            
         });
         
-        let html = `<!DOCTYPE html>
+        let html = `
+                    <!DOCTYPE html>
                     <html lang="en">
                     <head>
                         <meta charset="UTF-8">
