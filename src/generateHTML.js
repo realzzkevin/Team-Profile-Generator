@@ -6,13 +6,13 @@ function renderManagerCard(manager){
         let card =`<li class='card'>
                         <div class = 'card-header text-center'>
                             <h2>${manager.getName()}</h2>
-                            <h2><span class ='fas fa-user-tie'></span>${manager.getRole()}</h2>
+                            <h3><span class ='fas fa-user-tie'></span>${manager.getRole()}</h3>
                         </div>
                         <div class='card-body'>
                             <ul class='list-group'>
-                                <li class='list-group-item fas fa-id-badge'>ID:${manager.getId()}</li>
-                                <li class='list-group-item fas fa-at'>Email: <a href='mailto:${manager.getEmail()}'>${manager.getEmail()}</a>  </li>
-                                <li class='list-group-item fas fa-door-open'>office number: ${manager.getOfficeNumber()}</li>
+                                <li class='list-group-item fas fa-id-badge'> ID: ${manager.getId()}</li>
+                                <li class='list-group-item fas fa-at'> Email: <a href='mailto:${manager.getEmail()}'>${manager.getEmail()}</a>  </li>
+                                <li class='list-group-item fas fa-door-open'> office Number: ${manager.getOfficeNumber()}</li>
                             </ul>
                         </div>
                     </li>\n`;
@@ -28,13 +28,13 @@ function renderEngineerCard(engineer){
         let card = `<li class='card'>
                         <div class = 'card-header text-center'>
                             <h2>${engineer.getName()}</h2>
-                            <h2><span class ='fas fa-user-cog'></span>${engineer.getRole()}</h2>
+                            <h3><span class ='fas fa-user-cog'></span>${engineer.getRole()}</h3>
                         </div>
                         <div class='card-body'>
                             <ul class='list-group'>
                                 <li class='list-group-item fas fa-id-badge'> ID: ${engineer.getId()}</li>
-                                <li class='list-group-item fas fa-at'> Email: <a href='mailto:${engineer.getEmail()}'>${engineer.getEmail()}</a>  </li>
-                                <li class='list-group-item fab fa-github'> <a href='https://github.com/${engineer.getGithub()}'>${engineer.getGithub()} </a></li>
+                                <li class='list-group-item fas fa-at'> Email: <a href='mailto:${engineer.getEmail()}'> ${engineer.getEmail()}</a>  </li>
+                                <li class='list-group-item fab fa-github'> <a href='https://github.com/${engineer.getGithub()}'>: ${engineer.getGithub()} </a></li>
                             </ul>
                         </div>
                     </li>\n`;
@@ -50,18 +50,16 @@ function renderInternCard(intern){
         let card =`<li class='card'>
                         <div class = 'card-header text-center'>
                             <h2>${intern.getName()}</h2>
-                            <h2><span class='fas fa-user-graduate'></span>${intern.getRole()}</h2>
+                            <h3><span class='fas fa-user-graduate'></span>${intern.getRole()}</h3>
                         </div>
                         <div class='card-body'>
                             <ul class='list-group'>
-                                <li class='list-group-item fas fa-id-badge'>ID: ${intern.getId()}</li>
-                                <li class='list-group-item fas fa-at'>Email:<a href='mailto:${intern.getEmail()}'>${intern.getEmail()}</a>    </li>
-                                <li class='list-group-item fas fa-university'>${intern.getSchool()}</li>
+                                <li class='list-group-item fas fa-id-badge'> ID: ${intern.getId()}</li>
+                                <li class='list-group-item fas fa-at'> Email:<a href='mailto:${intern.getEmail()}'> ${intern.getEmail()}</a>    </li>
+                                <li class='list-group-item fas fa-university'>: ${intern.getSchool()}</li>
                             </ul>
                         </div>
                     </li>\n`;
-        console.log(card);
-
         return card;
 
     }

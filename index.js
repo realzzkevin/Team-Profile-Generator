@@ -56,7 +56,7 @@ const questions = [
         name: 'github',
         message: "Enter github account",
         validate: function (value){
-            if(value.match(/^[a-zA-Z0-9_-]{0,}$/)){
+            if(value.match(/^[a-zA-Z0-9_-]{1,}$/)){
                 return true;
             }
             return 'Please enter a valid github accoutn';
