@@ -114,6 +114,7 @@ function addManager(){
         .then((answer) =>{
             let manager = new Manager(answer.name, parseInt(answer.id), answer.email, parseInt(answer.officeNum));
             teamMembers.push(manager);
+            console.log(`${manager.getRole()} ${manager.getName()} profile created`);
             options();
         })
         .catch(err =>{
@@ -133,6 +134,7 @@ function addEngineer(){
         .then((answer) =>{
             let engineer = new Engineer(answer.name, parseInt(answer.id), answer.email, answer.github);
             teamMembers.push(engineer);
+            console.log(`${engineer.getRole()} ${engineer.getName()} profile created`);
             options();
         })
         .catch(err=>{
@@ -151,6 +153,7 @@ function addIntern(){
         .then((answer) =>{
             let intern = new Intern(answer.name, parseInt(answer.id), answer.email, answer.school);
             teamMembers.push(intern);
+            console.log(`${intern.getRole()} ${intern.getName()} profile created`);
             options();
         })
         .catch(err =>{

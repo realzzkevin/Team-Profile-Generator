@@ -3,10 +3,11 @@ function renderManagerCard(manager){
     manager.getRole();
     
     if(manager.getRole()==="Manager"){
-        let card =`<li class='card'>
-                        <div class = 'card-header text-center'>
-                            <h2>${manager.getName()}</h2>
-                            <h3><span class ='fas fa-user-tie'></span>${manager.getRole()}</h3>
+        let card =`
+                    <li class='card' style="max-width: 18rem; min-width: 18rem;">
+                        <div class = 'card-header text-center bg-info text-light'>
+                            <h2 class='card-title'>${manager.getName()}</h2>
+                            <h3 class ='card-text' ><span class ='fas fa-user-tie'></span>${manager.getRole()}</h3>
                         </div>
                         <div class='card-body'>
                             <ul class='list-group'>
@@ -25,16 +26,17 @@ function renderManagerCard(manager){
 
 function renderEngineerCard(engineer){
     if(engineer.getRole()==='Engineer'){
-        let card = `<li class='card'>
-                        <div class = 'card-header text-center'>
-                            <h2>${engineer.getName()}</h2>
-                            <h3><span class ='fas fa-user-cog'></span>${engineer.getRole()}</h3>
+        let card = `
+                    <li class='card' style="max-width: 18rem; min-width: 18rem;">
+                        <div class = 'card-header text-center bg-info text-light'>
+                            <h2 class='card-title'>${engineer.getName()}</h2>
+                            <h3 class ='card-text'><span class ='fas fa-user-cog'></span>${engineer.getRole()}</h3>
                         </div>
                         <div class='card-body'>
                             <ul class='list-group'>
                                 <li class='list-group-item fas fa-id-badge'> ID: ${engineer.getId()}</li>
                                 <li class='list-group-item fas fa-at'> Email: <a href='mailto:${engineer.getEmail()}'> ${engineer.getEmail()}</a>  </li>
-                                <li class='list-group-item fab fa-github'> <a href='https://github.com/${engineer.getGithub()}'>: ${engineer.getGithub()} </a></li>
+                                <li class='list-group-item fab fa-github'> github: <a href='https://github.com/${engineer.getGithub()}'>${engineer.getGithub()} </a></li>
                             </ul>
                         </div>
                     </li>\n`;
@@ -47,10 +49,11 @@ function renderEngineerCard(engineer){
 
 function renderInternCard(intern){
     if (intern.getRole()==='Intern'){
-        let card =`<li class='card'>
-                        <div class = 'card-header text-center'>
-                            <h2>${intern.getName()}</h2>
-                            <h3><span class='fas fa-user-graduate'></span>${intern.getRole()}</h3>
+        let card =`
+                    <li class='card' style="max-width: 18rem; min-width: 18rem;">
+                        <div class = 'card-header text-center bg-info text-light'>
+                            <h2 class='card-title'>${intern.getName()}</h2>
+                            <h3 class ='card-text'><span class='fas fa-user-graduate'></span>${intern.getRole()}</h3>
                         </div>
                         <div class='card-body'>
                             <ul class='list-group'>
@@ -87,7 +90,8 @@ function generateHTML(team){
             }            
         });
         
-        let html = `<!DOCTYPE html>
+        let html = `
+                    <!DOCTYPE html>
                     <html lang="en">
                     <head>
                         <meta charset="UTF-8">
@@ -98,14 +102,14 @@ function generateHTML(team){
                         <title>My Team</title>
                     </head>
                     <body>
-                        <header class="jumbotron jumbotron-fluid">
+                        <header class="jumbotron jumbotron-fluid text-light bg-primary">
                             <div class='container text-center'>
                                 <h1>My Team</h1>
                             </div>
                         </header>
                         <main class='container-fluid'>
-                            <section class='row'>
-                                <ul class ="card-deck">
+                            <section class='row justify-content-center'>
+                                <ul class ="card-deck w-75">
                                     ${list}
                                 </ul>
                             </section>
