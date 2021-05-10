@@ -54,12 +54,12 @@ const questions = [
     {
         type: 'input',
         name: 'github',
-        message: "Enter github account",
+        message: "Enter github account:",
         validate: function (value){
             if(value.match(/^[a-zA-Z0-9_-]{1,}$/)){
                 return true;
             }
-            return 'Please enter a valid github accoutn';
+            return 'Please enter a valid github accoutn.';
         },
     },
     {
@@ -72,7 +72,7 @@ const questions = [
     {
         type: 'input',
         name: 'school',
-        message: 'Enter the name of school',
+        message: 'Enter the name of school:',
         validate: (name)=>nameValidation(name), 
     },
 
