@@ -1,3 +1,4 @@
+//imported packages neede for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateHTML = require('./src/generateHTML');
@@ -5,6 +6,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+// All questions store in an array. Some questions have validate function.
 const questions = [
     {
         type: 'input',
@@ -77,9 +79,10 @@ const questions = [
     },
 
 ]
-
+// a global empty array user to store team member object.
 let teamMembers = [];
 
+// name cannot be a empty object or string.
 function nameValidation(name){
     if(name.trim().length){
         return true;
@@ -88,6 +91,7 @@ function nameValidation(name){
     }
 }
 
+// int must be a nubmer.
 function intValidation(int){
     if(parseInt(int)){
         return true;
@@ -96,6 +100,7 @@ function intValidation(int){
     }
 }
 
+// write data into a html file
 function writeToFile(fileName, data){
     let html = generateHTML(data);
     fs.writeFile(`./dist/${fileName}`, html, (err)=>{
@@ -104,6 +109,7 @@ function writeToFile(fileName, data){
     console.log(`${fileName} created!`);
 }
 
+// ask informations about manager and add it into teammembers array.
 function addManager(){
     inquirer
         .prompt([
@@ -122,7 +128,7 @@ function addManager(){
         })
 
 }
-
+//ask informations about engineer and add it into teammembers array.
 function addEngineer(){
     inquirer
         .prompt([
@@ -141,7 +147,7 @@ function addEngineer(){
             console.log(err);
         })
 }
-
+//ask information about intern and add it intor teammembers array.
 function addIntern(){
     inquirer
         .prompt([
@@ -160,7 +166,7 @@ function addIntern(){
             console.log(err);
         })
 }
-
+//allow user to choose options and call the correspoding function.
 function options(){
     inquirer
         .prompt(questions[4])
@@ -185,7 +191,7 @@ function options(){
             console.log(err);
         })
 }
-
+//initial team member and star application.
 function init(){
     teamMembers = new Array();
     addManager();
